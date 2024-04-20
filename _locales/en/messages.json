@@ -757,7 +757,7 @@
     "description": "Name for a voice message attachment"
   },
   "icu:dangerousFileType": {
-    "messageformat": "Attachment type not allowed for security reasons",
+    "messageformat": "bro i think i jsut shit myself YOU CANT BE SENDING EXE FILES BRO its makingme stomach achey brr ⚠️⚠️⚠️⚠️⚠️⚠️",
     "description": "Shown in toast when user attempts to send .exe file, for example"
   },
   "icu:loadingPreview": {
