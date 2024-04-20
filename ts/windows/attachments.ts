@@ -222,7 +222,7 @@ async function writeWithAttributes(
     // Hexadecimal seconds since epoch
     const timestamp = Math.trunc(Date.now() / 1000).toString(16);
 
-    const appName = 'Signal';
+    const appName = 'Sigma';
     const guid = getGuid();
 
     // https://ilostmynotes.blogspot.com/2012/06/gatekeeper-xprotect-and-quarantine.html
