@@ -4,7 +4,7 @@
   "description": "Private messaging from your desktop",
   "desktopName": "sigma.desktop",
   "repository": "https://github.com/mystically/Sigma-Desktop.git",
-  "version": "7.8.0-alpha.1, Sigma Version 0.0.0",
+  "version": "7.8.0-alpha.1",
   "license": "AGPL-3.0-only",
   "author": {
     "name": "Signal Messenger, LLC",
