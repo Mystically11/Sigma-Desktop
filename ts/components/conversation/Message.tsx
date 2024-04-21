@@ -2701,7 +2701,10 @@ export class Message extends React.PureComponent<Props, State> {
       this.hasReactions() ? 'module-message__container--with-reactions' : null,
       deletedForEveryone
         ? 'module-message__container--deleted-for-everyone'
-        : null
+        : null,
+      window.storage.get('highlightDirectedReplies', false) && this.props.quote && 
+      this.props.quote.isFromMe && direction === 'incoming' 
+        ? 'module-message__container--reply-targetted' : null
     );
     const containerStyles = {
       width: shouldUseWidth ? width : undefined,

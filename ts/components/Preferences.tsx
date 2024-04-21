@@ -78,6 +78,7 @@ export type PropsDataType = {
   deviceName?: string;
   hasAudioNotifications?: boolean;
   hasAutoConvertEmoji: boolean;
+  hasHighlightDirectedReplies: boolean;
   hasAutoDownloadUpdate: boolean;
   hasAutoLaunch: boolean;
   hasCallNotifications: boolean;
@@ -161,6 +162,7 @@ type PropsFunctionType = {
   // Change handlers
   onAudioNotificationsChange: CheckboxChangeHandlerType;
   onAutoConvertEmojiChange: CheckboxChangeHandlerType;
+  onHighlightDirectedRepliesChange: CheckboxChangeHandlerType;
   onAutoDownloadUpdateChange: CheckboxChangeHandlerType;
   onAutoLaunchChange: CheckboxChangeHandlerType;
   onCallNotificationsChange: CheckboxChangeHandlerType;
@@ -260,6 +262,7 @@ export function Preferences({
   getConversationsWithCustomColor,
   hasAudioNotifications,
   hasAutoConvertEmoji,
+  hasHighlightDirectedReplies,
   hasAutoDownloadUpdate,
   hasAutoLaunch,
   hasCallNotifications,
@@ -295,6 +298,7 @@ export function Preferences({
   notificationContent,
   onAudioNotificationsChange,
   onAutoConvertEmojiChange,
+  onHighlightDirectedRepliesChange,
   onAutoDownloadUpdateChange,
   onAutoLaunchChange,
   onCallNotificationsChange,
@@ -1425,6 +1429,14 @@ export function Preferences({
             {i18n('icu:Preferences__button--sigma-features')}
           </div>
         </div>
+
+        <Checkbox
+          checked={hasHighlightDirectedReplies}
+          label={i18n('icu:Preferences__highlight-directed-replies--title')}
+          moduleClassName="Preferences__checkbox"
+          name="highlightDirectedReplies"
+          onChange={onHighlightDirectedRepliesChange}
+        />
       </>
     );
   } else if (page === Page.ChatColor) {

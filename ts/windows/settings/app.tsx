@@ -41,6 +41,7 @@ SettingsWindowProps.onRender(
     getConversationsWithCustomColor,
     hasAudioNotifications,
     hasAutoConvertEmoji,
+    hasHighlightDirectedReplies,
     hasAutoDownloadUpdate,
     hasAutoLaunch,
     hasCallNotifications,
@@ -75,6 +76,7 @@ SettingsWindowProps.onRender(
     notificationContent,
     onAudioNotificationsChange,
     onAutoConvertEmojiChange,
+    onHighlightDirectedRepliesChange,
     onAutoDownloadUpdateChange,
     onAutoLaunchChange,
     onCallNotificationsChange,
@@ -142,6 +144,7 @@ SettingsWindowProps.onRender(
         getConversationsWithCustomColor={getConversationsWithCustomColor}
         hasAudioNotifications={hasAudioNotifications}
         hasAutoConvertEmoji={hasAutoConvertEmoji}
+        hasHighlightDirectedReplies={hasHighlightDirectedReplies}
         hasAutoDownloadUpdate={hasAutoDownloadUpdate}
         hasAutoLaunch={hasAutoLaunch}
         hasCallNotifications={hasCallNotifications}
@@ -180,6 +183,7 @@ SettingsWindowProps.onRender(
         notificationContent={notificationContent}
         onAudioNotificationsChange={onAudioNotificationsChange}
         onAutoConvertEmojiChange={onAutoConvertEmojiChange}
+        onHighlightDirectedRepliesChange={onHighlightDirectedRepliesChange}
         onAutoDownloadUpdateChange={onAutoDownloadUpdateChange}
         onAutoLaunchChange={onAutoLaunchChange}
         onCallNotificationsChange={onCallNotificationsChange}

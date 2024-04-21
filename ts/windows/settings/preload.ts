@@ -23,6 +23,7 @@ function doneRendering() {
 const settingMessageAudio = createSetting('audioMessage');
 const settingAudioNotification = createSetting('audioNotification');
 const settingAutoConvertEmoji = createSetting('autoConvertEmoji');
+const settingHighlightDirectedReplies = createSetting('highlightDirectedReplies');
 const settingAutoDownloadUpdate = createSetting('autoDownloadUpdate');
 const settingAutoLaunch = createSetting('autoLaunch');
 const settingCallRingtoneNotification = createSetting(
@@ -142,6 +143,7 @@ async function renderPreferences() {
     deviceName,
     hasAudioNotifications,
     hasAutoConvertEmoji,
+    hasHighlightDirectedReplies,
     hasAutoDownloadUpdate,
     hasAutoLaunch,
     hasCallNotifications,
@@ -184,6 +186,7 @@ async function renderPreferences() {
     deviceName: settingDeviceName.getValue(),
     hasAudioNotifications: settingAudioNotification.getValue(),
     hasAutoConvertEmoji: settingAutoConvertEmoji.getValue(),
+    hasHighlightDirectedReplies: settingHighlightDirectedReplies.getValue(),
     hasAutoDownloadUpdate: settingAutoDownloadUpdate.getValue(),
     hasAutoLaunch: settingAutoLaunch.getValue(),
     hasCallNotifications: settingCallSystemNotification.getValue(),
@@ -251,6 +254,7 @@ async function renderPreferences() {
     deviceName,
     hasAudioNotifications,
     hasAutoConvertEmoji,
+    hasHighlightDirectedReplies,
     hasAutoDownloadUpdate,
     hasAutoLaunch,
     hasCallNotifications,
@@ -320,6 +324,9 @@ async function renderPreferences() {
     ),
     onAutoConvertEmojiChange: attachRenderCallback(
       settingAutoConvertEmoji.setValue
+    ),
+    onHighlightDirectedRepliesChange: attachRenderCallback(
+      settingHighlightDirectedReplies.setValue
     ),
     onAutoDownloadUpdateChange: attachRenderCallback(
       settingAutoDownloadUpdate.setValue

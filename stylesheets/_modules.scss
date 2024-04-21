@@ -558,6 +558,16 @@ $message-padding-horizontal: 12px;
   }
 }
 
+.module-message__container--reply-targetted {
+  @include light-theme {
+    background-color: $color-reply-targeted;
+  }
+
+  @include dark-theme {
+    background-color: $color-reply-targeted;
+  }
+}
+
 .module-message__attachment-too-big {
   user-select: none;
 
