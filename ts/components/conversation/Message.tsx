@@ -72,7 +72,7 @@ import { getIncrement } from '../../util/timer';
 import { clearTimeoutIfNecessary } from '../../util/clearTimeoutIfNecessary';
 import { isFileDangerous } from '../../util/isFileDangerous';
 import { missingCaseError } from '../../util/missingCaseError';
-import type { HydratedBodyRangesType } from '../../types/BodyRange';
+import type { HydratedBodyRangeMention, HydratedBodyRangesType, HydratedBodyRangeType } from '../../types/BodyRange';
 import type { LocalizerType, ThemeType } from '../../types/Util';
 
 import type { PreferredBadgeSelectorType } from '../../state/selectors/badges';
@@ -84,18 +84,19 @@ import type {
 import { createRefMerger } from '../../util/refMerger';
 import { emojiToData, getEmojiCount, hasNonEmojiText } from '../emoji/lib';
 import { getCustomColorStyle } from '../../util/getCustomColorStyle';
-import type { ServiceIdString } from '../../types/ServiceId';
+import { isServiceIdString, type ServiceIdString } from '../../types/ServiceId';
 import { DAY, HOUR, MINUTE, SECOND } from '../../util/durations';
 import { BadgeImageTheme } from '../../badges/BadgeImageTheme';
 import { getBadgeImageFileLocalPath } from '../../badges/getBadgeImageFileLocalPath';
 import { handleOutsideClick } from '../../util/handleOutsideClick';
 import { isPaymentNotificationEvent } from '../../types/Payment';
 import type { AnyPaymentEvent } from '../../types/Payment';
-import { getPaymentEventDescription } from '../../messages/helpers';
+import { getPaymentEventDescription, isIncoming } from '../../messages/helpers';
 import { PanelType } from '../../types/Panels';
 import { openLinkInWebBrowser } from '../../util/openLinkInWebBrowser';
 import { RenderLocation } from './MessageTextRenderer';
 import { UserText } from '../UserText';
+import { isAciString } from '../../util/isAciString';
 
 const GUESS_METADATA_WIDTH_TIMESTAMP_SIZE = 16;
 const GUESS_METADATA_WIDTH_EXPIRE_TIMER_SIZE = 18;
@@ -2657,6 +2658,8 @@ export class Message extends React.PureComponent<Props, State> {
       onKeyDown,
       text,
       textDirection,
+      bodyRanges,
+      quote
     } = this.props;
     const { isTargeted } = this.state;
 
@@ -2667,13 +2670,31 @@ export class Message extends React.PureComponent<Props, State> {
 
     const isEmojiOnly = this.canRenderStickerLikeEmoji();
     const isStickerLike = isSticker || isEmojiOnly;
-
+    
     // If it's a mostly-normal gray incoming text box, we don't want to darken it as much
     const lighterSelect =
-      isTargeted &&
-      direction === 'incoming' &&
-      !isStickerLike &&
-      (text || (!isVideo(attachments) && !isImage(attachments)));
+    isTargeted &&
+    direction === 'incoming' &&
+    !isStickerLike &&
+    (text || (!isVideo(attachments) && !isImage(attachments)));
+
+    var isMentioned = false;
+
+    if (window.storage.get('highlightMentions', false) && direction === 'incoming') {
+      if (quote && quote.isFromMe) {
+        isMentioned = true;
+      } else if (bodyRanges != null) {
+        for (let bodyRange of bodyRanges) {
+          var castedBodyRange = bodyRange as HydratedBodyRangeMention;
+          if (castedBodyRange.mentionAci != null && isAciString(castedBodyRange.mentionAci)) {
+            if (window.storage.user.getCheckedAci() == castedBodyRange.mentionAci) {
+              isMentioned = true;
+              break;
+            }
+          }
+        }
+      }
+    }
 
     const containerClassnames = classNames(
       'module-message__container',
@@ -2702,9 +2723,10 @@ export class Message extends React.PureComponent<Props, State> {
       deletedForEveryone
         ? 'module-message__container--deleted-for-everyone'
         : null,
-      window.storage.get('highlightDirectedReplies', false) && this.props.quote && 
+      isMentioned ? 'module-message__container--mentioned' : null
+      /*window.storage.get('highlightMentions', false) && this.props.quote && 
       this.props.quote.isFromMe && direction === 'incoming' 
-        ? 'module-message__container--reply-targetted' : null
+        ? 'module-message__container--reply-targetted' : null*/
     );
     const containerStyles = {
       width: shouldUseWidth ? width : undefined,

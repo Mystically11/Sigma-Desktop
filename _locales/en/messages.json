@@ -5742,9 +5742,9 @@
     "messageformat": "For example, :-) will be converted to 🙂",
     "description": "Description for the auto convert emoji setting"
   },
-  "icu:Preferences__highlight-directed-replies--title": {
-    "messageformat": "Highlight messages replying to you",
-    "description": "Description for highlight directed replies setting"
+  "icu:Preferences__highlight-mentions": {
+    "messageformat": "Highlight messages that mention you",
+    "description": "Label for the highlight messages that mention you setting"
   },
   "icu:Preferences--advanced": {
     "messageformat": "Advanced",

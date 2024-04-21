@@ -78,7 +78,7 @@ export type PropsDataType = {
   deviceName?: string;
   hasAudioNotifications?: boolean;
   hasAutoConvertEmoji: boolean;
-  hasHighlightDirectedReplies: boolean;
+  shouldHighlightMentions: boolean;
   hasAutoDownloadUpdate: boolean;
   hasAutoLaunch: boolean;
   hasCallNotifications: boolean;
@@ -162,7 +162,7 @@ type PropsFunctionType = {
   // Change handlers
   onAudioNotificationsChange: CheckboxChangeHandlerType;
   onAutoConvertEmojiChange: CheckboxChangeHandlerType;
-  onHighlightDirectedRepliesChange: CheckboxChangeHandlerType;
+  onHighlightMentionsChange: CheckboxChangeHandlerType;
   onAutoDownloadUpdateChange: CheckboxChangeHandlerType;
   onAutoLaunchChange: CheckboxChangeHandlerType;
   onCallNotificationsChange: CheckboxChangeHandlerType;
@@ -262,7 +262,7 @@ export function Preferences({
   getConversationsWithCustomColor,
   hasAudioNotifications,
   hasAutoConvertEmoji,
-  hasHighlightDirectedReplies,
+  shouldHighlightMentions,
   hasAutoDownloadUpdate,
   hasAutoLaunch,
   hasCallNotifications,
@@ -298,7 +298,7 @@ export function Preferences({
   notificationContent,
   onAudioNotificationsChange,
   onAutoConvertEmojiChange,
-  onHighlightDirectedRepliesChange,
+  onHighlightMentionsChange,
   onAutoDownloadUpdateChange,
   onAutoLaunchChange,
   onCallNotificationsChange,
@@ -1431,11 +1431,11 @@ export function Preferences({
         </div>
 
         <Checkbox
-          checked={hasHighlightDirectedReplies}
-          label={i18n('icu:Preferences__highlight-directed-replies--title')}
+          checked={shouldHighlightMentions}
+          label={i18n('icu:Preferences__highlight-mentions')}
           moduleClassName="Preferences__checkbox"
-          name="highlightDirectedReplies"
-          onChange={onHighlightDirectedRepliesChange}
+          name="highlightMentions"
+          onChange={onHighlightMentionsChange}
         />
       </>
     );

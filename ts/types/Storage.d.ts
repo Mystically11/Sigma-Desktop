@@ -48,7 +48,7 @@ export type StorageAccessType = {
   'audio-notification': boolean;
   'auto-download-update': boolean;
   autoConvertEmoji: boolean;
-  highlightDirectedReplies: boolean;
+  highlightMentions: boolean;
   'badge-count-muted-conversations': boolean;
   'blocked-groups': ReadonlyArray<string>;
   'blocked-uuids': ReadonlyArray<ServiceIdString>;

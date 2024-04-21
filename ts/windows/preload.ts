@@ -41,7 +41,7 @@ installSetting('alwaysRelayCalls');
 installSetting('audioMessage');
 installSetting('audioNotification');
 installSetting('autoConvertEmoji');
-installSetting('highlightDirectedReplies');
+installSetting('highlightMentions');
 installSetting('autoDownloadUpdate');
 installSetting('autoLaunch');
 installSetting('callRingtoneNotification');

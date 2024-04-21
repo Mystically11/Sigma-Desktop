@@ -85,7 +85,7 @@ export class SettingsChannel extends EventEmitter {
     this.installSetting('textFormatting');
 
     this.installSetting('autoConvertEmoji');
-    this.installSetting('highlightDirectedReplies');
+    this.installSetting('highlightMentions');
     this.installSetting('autoDownloadUpdate');
     this.installSetting('autoLaunch');
 

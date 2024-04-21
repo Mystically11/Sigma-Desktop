@@ -558,13 +558,13 @@ $message-padding-horizontal: 12px;
   }
 }
 
-.module-message__container--reply-targetted {
+.module-message__container--mentioned {
   @include light-theme {
-    background-color: $color-reply-targeted;
+    background-color: $color-mentioned;
   }
 
   @include dark-theme {
-    background-color: $color-reply-targeted;
+    background-color: $color-mentioned;
   }
 }
 
