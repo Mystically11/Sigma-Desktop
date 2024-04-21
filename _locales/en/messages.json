@@ -5710,6 +5710,10 @@
     "messageformat": "Privacy",
     "description": "Button to switch the settings view"
   },
+  "icu:Preferences__button--sigma-features": {
+    "messageformat": "Sigma Features",
+    "description": "Button to switch the settings view"
+  },
   "icu:Preferences--lastSynced": {
     "messageformat": "Last import at {date} {time}",
     "description": "Label for date and time of last sync operation"

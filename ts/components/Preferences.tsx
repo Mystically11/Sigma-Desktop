@@ -208,6 +208,7 @@ enum Page {
   Calls = 'Calls',
   Notifications = 'Notifications',
   Privacy = 'Privacy',
+  SigmaFeatures = 'Sigma Features',
 
   // Sub pages
   ChatColor = 'ChatColor',
@@ -1393,6 +1394,16 @@ export function Preferences({
         ) : null}
       </>
     );
+  } else if (page === Page.SigmaFeatures) {
+    settings = (
+      <>
+        <div className="Preferences__title">
+          <div className="Preferences__title--header">
+            {i18n('icu:Preferences__button--sigma-features')}
+          </div>
+        </div>
+      </>
+    );
   } else if (page === Page.ChatColor) {
     settings = (
       <>
@@ -1637,6 +1648,18 @@ export function Preferences({
             onClick={() => setPage(Page.Privacy)}
           >
             {i18n('icu:Preferences__button--privacy')}
+          </button>
+          <button
+            type="button"
+            className={classNames({
+              Preferences__button: true,
+              'Preferences__button--sigma-features': true,
+              'Preferences__button--selected':
+                page === Page.SigmaFeatures,
+            })}
+            onClick={() => setPage(Page.SigmaFeatures)}
+          >
+            {i18n('icu:Preferences__button--sigma-features')}
           </button>
         </div>
         <div className="Preferences__settings-pane" ref={settingsPaneRef}>

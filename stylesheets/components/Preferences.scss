@@ -102,6 +102,10 @@
     &--privacy {
       @include preferences-icon('../images/icons/v3/lock/lock.svg');
     }
+
+    &--sigma-features {
+      @include preferences-icon('../images/icons/v3/sigma_features/sigma_features.svg');
+    }
   }
 
   &__settings-pane {
