@@ -511,6 +511,9 @@ export function Preferences({
   ]);
 
   const [showPhoneNumber, setShowPhoneNumber] = useState(false);
+  useEffect(() => {
+    setShowPhoneNumber(false);
+  }, [page]);
 
   const localeSearchResults = useMemo(() => {
     return localeSearchOptions.filter(option => {
