@@ -483,6 +483,8 @@ export function Preferences({
       { algorithm: 'best fit' }
     );
 
+    
+
     return [
       ...localeOverrideMatches,
       {
@@ -503,6 +505,8 @@ export function Preferences({
     preferredSystemLocales,
     getLocaleDisplayName,
   ]);
+
+  const [showPhoneNumber, setShowPhoneNumber] = useState(false);
 
   const localeSearchResults = useMemo(() => {
     return localeSearchOptions.filter(option => {
@@ -535,7 +539,24 @@ export function Preferences({
         <SettingsRow>
           <Control
             left={i18n('icu:Preferences--phone-number')}
-            right={phoneNumber}
+            right={
+              <div>
+                {showPhoneNumber ? (
+                  phoneNumber
+                ) : (
+                  <button 
+                    onClick={() => setShowPhoneNumber(true)}
+                    style={{
+                      backgroundColor: '#121212',
+                      border: 'none',
+                      borderRadius: '10px',
+                      outline: 'none',
+                    }}>
+                    {i18n('icu:Preferences__show-phone-number')}
+                  </button>
+                )}
+              </div>
+            }
           />
           <Control
             left={i18n('icu:Preferences--device-name')}
@@ -829,6 +850,8 @@ export function Preferences({
         ? i18n('icu:spellCheckWillBeEnabled')
         : i18n('icu:spellCheckWillBeDisabled');
     }
+
+    
 
     const lastSyncDate = new Date(lastSyncTime || 0);
 
@@ -1696,6 +1719,7 @@ function SettingsRow({
     </fieldset>
   );
 }
+
 
 function Control({
   icon,

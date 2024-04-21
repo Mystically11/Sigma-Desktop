@@ -5762,6 +5762,9 @@
     "messageformat": "To change these settings, open the Signal app on your mobile device and navigate to Settings > Privacy",
     "description": "Description for the 'who can do X' setting"
   },
+  "icu:Preferences__show-phone-number": {
+    "messageformat": "Click to reveal phone number"
+  },
   "icu:Preferences__pnp__row--title": {
     "messageformat": "Phone Number",
     "description": "Title of Phone Number row in Privacy section of Preferences window"

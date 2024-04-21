@@ -38,6 +38,9 @@
   "icu:Preferences__sent-media-quality": {
     "messageformat": "Kvalita odeslaných médií"
   },
+  "icu:Preferences__show-phone-number": {
+    "messageformat": "Zobrazit telefonní číslo"
+  },
   "icu:sentMediaQualityStandard": {
     "messageformat": "Standardní"
   },
