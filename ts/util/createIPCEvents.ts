@@ -59,6 +59,7 @@ export type IPCEventsValuesType = {
   audioNotification: boolean | undefined;
   audioMessage: boolean;
   autoConvertEmoji: boolean;
+  highlightDirectedReplies: boolean;
   autoDownloadUpdate: boolean;
   autoLaunch: boolean;
   callRingtoneNotification: boolean;
@@ -412,6 +413,8 @@ export function createIPCEvents(
       window.storage.put('auto-download-update', value),
     getAutoConvertEmoji: () => window.storage.get('autoConvertEmoji', true),
     setAutoConvertEmoji: value => window.storage.put('autoConvertEmoji', value),
+    getHighlightDirectedReplies: () => window.storage.get('highlightDirectedReplies', true),
+    setHighlightDirectedReplies: value => window.storage.put('highlightDirectedReplies', value),
     getSentMediaQualitySetting: () =>
       window.storage.get('sent-media-quality', 'standard'),
     setSentMediaQualitySetting: value =>
